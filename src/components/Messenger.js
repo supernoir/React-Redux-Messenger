@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert } from 'reactstrap';
+import { Alert, Badge } from 'reactstrap';
 
 export default class Messenger extends React.Component {
 	render(){
@@ -9,14 +9,19 @@ export default class Messenger extends React.Component {
 			<div className="container">
 				{Messenger.map((message,index) => {
 					return 	<Alert color={message.type} key={index}>
-						<h4 className="alert-heading">{message.message}{' '}<span>{message.code}</span></h4>
+						<h4 className="alert-heading">{message.message}{' '}
+							{ message.code !== void 0
+								? <Badge color={message.type}>{message.code}</Badge>
+								: null
+							}
+						</h4>
 						<p>{message.description}</p>
 						{ message.source !== void 0 && message.stacktrace !== void 0
 							? <hr/>
 							: null
 						}
 						{ message.source !== void 0
-							? <p className="mb-0">{message.source}</p>
+							? <p className="mb-0"><strong>Source: </strong>{message.source}</p>
 							: null
 						}
 						{ message.source !== void 0
