@@ -24,27 +24,27 @@ export default class ReactReduxMessenger extends React.Component {
 			{
 				message    : 'You should check it out',
 				type       : 'warning',
-				source     : 'The gosh darn Server',
-				stacktrace : 'Check the render method of `component`. See https://fb.me/react-warning-keys for more information.',
+				source     : 'App - Component rendered with warnings',
+				stacktrace : 'Warning: Each child in an array or iterator should have a unique "key" prop.',
 				code       : 400,
 				description: 'Something doesn\'t feel right'
 			},
 			{
 				message    : 'All is well',
 				type       : 'info',
-				code       : 200,
 				description: 'Just a shiny new day without any clouds'
 			},
 			{
 				message    : 'You done and did it',
 				type       : 'success',
-				code       : 100,
-				description: 'Whoa buddy'
+				description: 'Whoa buddy - that\'s amazing!'
 			}
 		];
 
   	return(
 			<div className="container">
+				<h1>React Redux Messenger</h1>
+				<hr/>
 				<Messenger Messenger={Messages} limit={messageLimit} />
 			</div>
   	);

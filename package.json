@@ -6,7 +6,8 @@
   "author": "supernoir <kawohl.bentodesign@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server -w"
+    "start": "webpack-dev-server -w",
+    "test": "jest"
   },
   "dependencies": {
     "babel": "^6.23.0",
@@ -23,6 +24,7 @@
     "mini-css-extract-plugin": "^0.4.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-test-renderer": "^16.4.2",
     "reactstrap": "^6.4.0",
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
@@ -30,5 +32,8 @@
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
+  },
+  "devDependencies": {
+    "jest": "^23.5.0"
   }
 }

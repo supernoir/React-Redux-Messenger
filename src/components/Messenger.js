@@ -7,13 +7,14 @@ export default class Messenger extends React.Component {
 		const { Messenger } = this.props;
 		return (
 			<div className="container">
-				{Messenger.map((message,index) => {
+				{Messenger !== void 0 ? Messenger.map((message, index) => {
 					return 	<Alert color={message.type} key={index}>
-						<h4 className="alert-heading">{message.message}{' '}
+						<h4 className="alert-heading">
 							{ message.code !== void 0
-								? <Badge color={message.type}>{message.code}</Badge>
+								? <small><Badge color={message.type}>{message.code}</Badge></small>
 								: null
-							}
+							}{' '}
+							{message.message}
 						</h4>
 						<p>{message.description}</p>
 						{ message.source !== void 0 && message.stacktrace !== void 0
@@ -29,7 +30,7 @@ export default class Messenger extends React.Component {
 							: null
 						}
 					</Alert>;
-				})}
+				}):null}
 			</div>);
 	}
 }
