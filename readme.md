@@ -1,16 +1,12 @@
 # React Redux Messenger
 ## A simple Messaging Component to display your alerts
 
----
-
 ### Description
 - Uses Redux to store and handle Messenger state
 - Leverages Reactstrap to display alerts
 - Covered by Snapshot Tests
 
----
-
-Getting Started
+### Getting Started
 - Prerequisites:
   Node/NPM installed (8.11.4 or higher)
 - Clone the repository
@@ -26,4 +22,4 @@ Getting Started
   ```javascript
   yarn start
   ```
-  - Start contributing!
+- Start contributing!
