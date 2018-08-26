@@ -7,22 +7,34 @@ export default class Messenger extends React.Component {
 		const { Messenger } = this.props;
 		return (
 			<div className="container">
-				<Alert color="success">
-					<h4 className="alert-heading">{Messenger.message}{' '}<span>{Messenger.code}</span></h4>
-					<p>{Messenger.description}</p>
-					<hr />
-					<p className="mb-0">
-          Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
-					</p>
-				</Alert>
+				{Messenger.map((message,index) => {
+					return 	<Alert color={message.type} key={index}>
+						<h4 className="alert-heading">{message.message}{' '}<span>{message.code}</span></h4>
+						<p>{message.description}</p>
+						{ message.source !== void 0 && message.stacktrace !== void 0
+							? <hr/>
+							: null
+						}
+						{ message.source !== void 0
+							? <p className="mb-0">{message.source}</p>
+							: null
+						}
+						{ message.source !== void 0
+							? <pre><code>{message.stacktrace}</code></pre>
+							: null
+						}
+					</Alert>;
+				})}
 			</div>);
 	}
 }
 
-Messenger.propTypes = {
-	Messenger: PropTypes.objectOf({
-		messages   : PropTypes.string,
-		code       : PropTypes.number,
-		description: PropTypes.string
-	})
-};
+/* Messenger.propTypes = {
+	Messenger: PropTypes.arrayOf(
+		PropTypes.object({
+			type       : PropTypes.string,
+			messages   : PropTypes.string,
+			code       : PropTypes.number,
+			description: PropTypes.string
+		}))
+}; */
